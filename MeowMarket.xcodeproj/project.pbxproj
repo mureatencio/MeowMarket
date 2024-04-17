@@ -114,6 +114,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		499447362BD031D70091528F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				49A3D9122BC8CF6F003D698E /* CatImagesViewModel.swift */,
+				49A3D91A2BCA1250003D698E /* CatDetailsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		49A3D8AE2BC61A23003D698E = {
 			isa = PBXGroup;
 			children = (
@@ -138,16 +147,17 @@
 		49A3D8B92BC61A24003D698E /* MeowMarket */ = {
 			isa = PBXGroup;
 			children = (
-				49E39FB52BCF311C005B822D /* Localization */,
-				49A3D9142BC9EBF4003D698E /* DataSource */,
-				49A3D8ED2BC70E12003D698E /* Info.plist */,
-				49A3D8E62BC70A9D003D698E /* Network */,
 				49A3D8E82BC70ACD003D698E /* Models */,
 				49A3D8E72BC70AB4003D698E /* Views */,
+				499447362BD031D70091528F /* ViewModels */,
+				49A3D8E62BC70A9D003D698E /* Network */,
+				49A3D9142BC9EBF4003D698E /* DataSource */,
+				49E39FB52BCF311C005B822D /* Localization */,
+				49A3D8ED2BC70E12003D698E /* Info.plist */,
 				49A3D8BA2BC61A24003D698E /* MeowMarketApp.swift */,
+				49A3D8E42BC70A4B003D698E /* AppLauncher.swift */,
 				49A3D8BE2BC61A28003D698E /* Assets.xcassets */,
 				49A3D8C02BC61A28003D698E /* Preview Content */,
-				49A3D8E42BC70A4B003D698E /* AppLauncher.swift */,
 			);
 			path = MeowMarket;
 			sourceTree = "<group>";
@@ -238,7 +248,6 @@
 			children = (
 				49A3D8FC2BC736CB003D698E /* CatImagesView.swift */,
 				49A3D8FE2BC73718003D698E /* CatImageCard.swift */,
-				49A3D9122BC8CF6F003D698E /* CatImagesViewModel.swift */,
 			);
 			path = CatImages;
 			sourceTree = "<group>";
@@ -255,7 +264,6 @@
 			isa = PBXGroup;
 			children = (
 				49A3D9182BCA11E2003D698E /* CatDetailsView.swift */,
-				49A3D91A2BCA1250003D698E /* CatDetailsViewModel.swift */,
 			);
 			path = CatDetails;
 			sourceTree = "<group>";

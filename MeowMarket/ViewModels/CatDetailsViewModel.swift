@@ -5,6 +5,8 @@
 
 import Foundation
 
+// Cat details view model.
+// Implements new Observable protocol object that unifies state and stateObject
 @Observable class CatDetailsViewModel {
     var text: String = ""
     var isMonochrome: Bool = false
@@ -20,6 +22,8 @@ import Foundation
         }
     }
     
+    // Generates the URL for the cat image with the specified text and settings.
+    // Finally updates the binded imageUrl property to propagate changes to the view.
     func generateUrl() {
         let base = "\(CatsAPI.baseUrl)/cat/\(cat.id)"
         let textSegment = text.isEmpty ? "" : "/says/\(text)"

@@ -6,12 +6,15 @@
 import SwiftUI
 import NukeUI
 
+// Cat details view displaying a cat image and tags
+// also displaying image manipulation options
 struct CatDetailsView: View {
     @Bindable var viewModel: CatDetailsViewModel
     
     var body: some View {
         ScrollView{
             VStack {
+                // LazyImage imported from Nuke library
                 LazyImage(url: viewModel.imageUrl) { phase in
                     if let image = phase.image {
                         image
@@ -19,6 +22,7 @@ struct CatDetailsView: View {
                             .clipShape(RoundedRectangle(cornerRadius: 8))
                             .aspectRatio(contentMode: .fit)
                     } else if phase.error != nil {
+                        // Error placeholder image
                         Image("outcoding-full")
                             .resizable()
                     } else {
@@ -27,6 +31,7 @@ struct CatDetailsView: View {
                 }
                 .frame(width: 300, height: 300)
                 .padding(.bottom)
+                // Adding tags a scrollable content
                 VStack(alignment: .leading) {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack {
@@ -43,6 +48,7 @@ struct CatDetailsView: View {
                 .font(.system(size: 15))
                 .padding(.bottom)
                 
+                // Defining image manipulation components
                 HStack{
                     Text("\(NSLocalizedString("MessageTitle", comment: "Message input title")):")
                         .frame(alignment: .leading)
@@ -64,6 +70,7 @@ struct CatDetailsView: View {
                     }
                 }
                 
+                // Add generate button to trigger changes.
                 Button(NSLocalizedString("Generate", comment: "Generate button title")) {
                     viewModel.generateUrl()
                 }
@@ -76,6 +83,7 @@ struct CatDetailsView: View {
     }
 }
 
+// Preview for CatDetailsView
 #Preview {
     CatDetailsView(viewModel: CatDetailsViewModel(cat:
                                                     Cat(data: CatImageData(id: "123",

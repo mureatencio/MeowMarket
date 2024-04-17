@@ -6,9 +6,10 @@
 import SwiftUI
 import SwiftData
 
-/// A view that displays a list of cat images, allowing the user to see a variety of cat pictures.
+// A view that displays a list of cat images, allowing the user to see a variety of cat pictures.
 struct CatImagesView: View {
 
+    // Defining bindable variable to hold the view model for the CatImagesView.
     @Bindable var viewModel = CatImagesViewModel()
     
     var body: some View {
@@ -27,8 +28,7 @@ struct CatImagesView: View {
     }
     
     
-    /// Indicates that the data is being fetched on initial load.
-    ///
+    // Indicates that the data is being fetched on initial load.
     private var loadingStatus: some View {
         HStack {
             Spacer()
@@ -40,10 +40,8 @@ struct CatImagesView: View {
         }
     }
     
-    // MARK: - Private Properties
-    
-    /// The list of cat images to display.
-    ///
+    // The list of cat images to display.
+    //
     private var catImageList: some View {
         List {
             if viewModel.state.fetchingData {

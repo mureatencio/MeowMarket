@@ -7,14 +7,14 @@
 import XCTest
 
 final class CatsRequestTests: XCTestCase {
-    /// Mocked api requestor.
+    // Mocked api requestor.
     var apiMock: APIRequestMock!
 
     override func setUp () {
         apiMock = APIRequestMock()
     }
 
-    /// Test fetching cats returns a list of properly mapped cat objects.
+    // Test fetching cats returns a list of properly mapped cat objects.
     func testFetchCats() async throws {
         apiMock.mockedDataFilename = "CatsData"
 

@@ -6,6 +6,8 @@
 import SwiftUI
 import SwiftData
 
+// Main cat images list view model.
+// Implements new Observable protocol object that unifies state and stateObject
 @Observable class CatImagesViewModel {
     var state = CatImagesState()
     
@@ -15,7 +17,7 @@ import SwiftData
     private let itemsPerPage = CatsAPI.pageSize
     private var reachedEnd = false
     
-    /// The data that is queried from SwiftData and used to populate the views.
+    // The data that is queried from SwiftData and used to populate the views.
     var cats: [Cat] = []
 
     init(state: CatImagesState = CatImagesState(), dataSource: CatsDataSource = CatsDataSource.shared) {
@@ -25,7 +27,6 @@ import SwiftData
             self.loadMoreContentIfNeeded(currentItem: nil)
         }
     }
-    
     
     func loadMoreContentIfNeeded(currentItem cat: Cat?) {
         guard !isLoading, !reachedEnd else { return }
@@ -37,10 +38,8 @@ import SwiftData
         }
     }
     
-    // MARK: - Private Functions
-
-    /// Fetches cat images from the API and stores them in SwiftData.
-    ///
+    // Fetches cat images from the API and stores them in SwiftData.
+    //
     @MainActor
     func fetchCatImages() async {
         state.fetchingData = true

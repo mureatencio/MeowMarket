@@ -1,19 +1,19 @@
 import Foundation
 
-/// Protocol in that defines the API request and mapping to the expected data object.
-///
+// Protocol in that defines the API request and mapping to the expected data object.
+//
 protocol APIRequest {
-    /// Makes a network request to the given url, then maps the response to an object.
-    ///
-    /// - Parameter urlString: The url for the API.
-    ///
+    // Makes a network request to the given url, then maps the response to an object.
+    //
+    // - Parameter urlString: The url for the API.
+    //
     func request<T>(urlString: String) async throws -> T where T: Decodable
 }
 
-/// The default implementation of the api request.
-/// 
+// The default implementation of the api request.
+// 
 struct DefaultAPIRequest: APIRequest {
-    /// The networking object to handle the actual request.
+    // The networking object to handle the actual request.
     var networkSession: NetworkSession = DefaultNetworkSession()
 
     func request<T>(urlString: String) async throws -> T where T: Decodable {

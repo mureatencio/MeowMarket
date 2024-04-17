@@ -5,13 +5,17 @@
 
 import SwiftData
 
+// The datasource uses SwiftData to parse and store the data in the model context
+// alloing to query data and implement persistence easily
 final class CatsDataSource {
     private let modelContainer: ModelContainer
     private let modelContext: ModelContext
 
+    // Shared instance of datasource
     @MainActor
     static let shared = CatsDataSource()
 
+    // Default constructor
     @MainActor
     private init() {
         self.modelContainer = {
@@ -29,6 +33,7 @@ final class CatsDataSource {
         self.modelContext = modelContainer.mainContext
     }
 
+    // Constructor for testing purposes
     @MainActor
     public init(modelContainer: ModelContainer) {
         self.modelContainer = modelContainer

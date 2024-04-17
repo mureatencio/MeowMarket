@@ -4,7 +4,7 @@ import XCTest
 final class DefaultAPIRequestTests: XCTestCase {
     let exampleUrlString = "https://example.com"
 
-    /// Tests data mismatch is thrown.
+    // Tests data mismatch is thrown.
     func testDataMismatch() async throws {
         let data = try XCTUnwrap("{ }".data(using: .utf8))
         let url = try XCTUnwrap(URL(string: exampleUrlString))
@@ -30,7 +30,7 @@ final class DefaultAPIRequestTests: XCTestCase {
         }
     }
 
-    /// Tests invalid response type (when the response is not an HTTPURLResponse).
+    // Tests invalid response type (when the response is not an HTTPURLResponse).
     func testInvalidResponseType() async {
         let subject = DefaultAPIRequest(networkSession: NetworkSessionMock(response: URLResponse()))
 
@@ -44,7 +44,7 @@ final class DefaultAPIRequestTests: XCTestCase {
         }
     }
 
-    /// Tests invalid url is thrown.
+    // Tests invalid url is thrown.
     func testInvalidURL() async {
         let subject = DefaultAPIRequest(networkSession: NetworkSessionMock())
 
@@ -58,7 +58,7 @@ final class DefaultAPIRequestTests: XCTestCase {
         }
     }
 
-    /// Tests error is thrown when the response status code is non-2xx.
+    // Tests error is thrown when the response status code is non-2xx.
     func testOtherStatusCodeError() async throws {
         let url = try XCTUnwrap(URL(string: exampleUrlString))
         let response = try XCTUnwrap(
@@ -84,7 +84,7 @@ final class DefaultAPIRequestTests: XCTestCase {
         }
     }
 
-    /// Tests when request throws an error.
+    // Tests when request throws an error.
     func testRequestError() async throws {
         let thrownError = APIRequestError.invalidURL
         let mock = NetworkSessionMock(error: thrownError)
@@ -100,7 +100,7 @@ final class DefaultAPIRequestTests: XCTestCase {
         }
     }
 
-    /// Tests the success scenario.
+    // Tests the success scenario.
     func testSuccess() async throws {
         let apiMock = APIRequestMock()
         let data = apiMock.getData(filename: "CatsData")

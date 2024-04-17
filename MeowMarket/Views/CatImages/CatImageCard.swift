@@ -6,13 +6,13 @@
 import NukeUI
 import SwiftUI
 
-/// A view that handles laying out the details of a Cat from the API.
-///
+// A view that handles laying out the details of a Cat from the API.
 struct CatImageCard: View {
     let cat: Cat
 
     var body: some View {
         HStack(spacing: 16) {
+            // LazyImage imported from Nuke library
             LazyImage(url: URL(string: "\(CatsAPI.baseUrl)/cat/\(cat.id)")) { phase in
                 if let image = phase.image {
                     image
