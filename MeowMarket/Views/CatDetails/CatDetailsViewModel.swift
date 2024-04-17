@@ -21,7 +21,7 @@ import Foundation
     }
     
     func generateUrl() {
-        let base = "https://cataas.com/cat/\(cat.id)"
+        let base = "\(CatsAPI.baseUrl)/cat/\(cat.id)"
         let textSegment = text.isEmpty ? "" : "/says/\(text)"
         let query = "?fontSize=\(Int(fontSize))&fontColor=white\(isMonochrome ? "&filter=mono" : "")"
         imageUrl = URL(string: base + textSegment + query)

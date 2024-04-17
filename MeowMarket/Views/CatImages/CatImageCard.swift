@@ -13,7 +13,7 @@ struct CatImageCard: View {
 
     var body: some View {
         HStack(spacing: 16) {
-            LazyImage(url: URL(string: "https://cataas.com/cat/\(cat.id)")) { phase in
+            LazyImage(url: URL(string: "\(CatsAPI.baseUrl)/cat/\(cat.id)")) { phase in
                 if let image = phase.image {
                     image
                         .resizable()

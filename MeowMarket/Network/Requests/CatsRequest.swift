@@ -18,11 +18,17 @@ protocol CatImagesRequest {
     func fetchCatImages(limit: Int, skip: Int) async throws -> [Cat]
 }
 
+struct CatsAPI {
+    static let baseUrl = "https://cataas.com"
+    static let baseApiUrl = "https://cataas.com/api"
+    static let pageSize = 20
+}
+
 struct DefaultCatImagesRequest: CatImagesRequest {
     var apiRequest: APIRequest = DefaultAPIRequest()
 
     func fetchCatImages(limit: Int, skip: Int) async throws -> [Cat] {
-        let urlString = "https://cataas.com/api/cats?limit=\(limit)&skip=\(skip)"
+        let urlString = "\(CatsAPI.baseApiUrl)/cats?limit=\(limit)&skip=\(skip)"
         let data: [Cat] = try await apiRequest.request(urlString: urlString)
         return data
     }

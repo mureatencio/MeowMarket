@@ -12,7 +12,7 @@ import SwiftData
     private let dataSource: CatsDataSource
     private var isLoading = false
     private var page = 0
-    private let itemsPerPage = 20
+    private let itemsPerPage = CatsAPI.pageSize
     private var reachedEnd = false
     
     /// The data that is queried from SwiftData and used to populate the views.

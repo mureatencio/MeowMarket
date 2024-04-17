@@ -22,6 +22,7 @@ Additionally, users can interact with the image generation API to modify the ima
 - MVVM
 - SWIFTUI
 - SwiftData
+- Observable protocol object (https://developer.apple.com/documentation/Observation)
 - Networking
 - API Mocking
 - Infinite/Paginated scroll
